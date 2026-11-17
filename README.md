@@ -1,4 +1,4 @@
-# Secure Notes · Interview setup
+# Secure Notes
 
 The workspace contains two independently publishable projects.
 
