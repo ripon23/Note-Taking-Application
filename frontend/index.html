@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secure Notes</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Secure Notes</h1>
+    <div id="identity" hidden><span id="account"></span> <button id="logout" class="secondary">Sign out</button></div>
+  </header>
+  <main>
+    <p id="status" role="status" aria-live="polite" hidden></p>
+    <section id="auth">
+      <h2 id="auth-title">Sign in</h2>
+      <form id="auth-form">
+        <label data-register hidden>Name <input name="name" maxlength="80" autocomplete="name" disabled></label>
+        <label>Email <input name="email" type="email" autocomplete="email" required></label>
+        <label>Password <input name="password" type="password" autocomplete="current-password" required maxlength="128"></label>
+        <label data-register hidden>Interests, comma separated <input name="interests" placeholder="Chess, reading" disabled></label>
+        <button id="auth-submit">Sign in</button>
+      </form>
+      <button id="auth-toggle" class="secondary">Create an account</button>
+    </section>
+
+    <section id="workspace" hidden>
+      <nav aria-label="Workspace">
+        <button data-view="notes">My notes</button>
+        <button data-view="posts">Public posts</button>
+        <button data-view="all-notes" data-admin hidden>All notes</button>
+        <button data-view="users" data-admin hidden>Users</button>
+        <button data-view="interests" data-admin hidden>Interests</button>
+      </nav>
+      <h2 id="view-title"></h2>
+      <form id="editor" hidden></form>
+      <form id="lookup" hidden>
+        <label>Author ID <input name="author" maxlength="24" pattern="[a-fA-F0-9]{24}" required></label>
+        <button>Find posts</button>
+        <small id="own-id"></small>
+      </form>
+      <div id="items"></div>
+      <div id="pagination" hidden>
+        <button id="previous" class="secondary">Previous</button>
+        <span id="page"></span>
+        <button id="next" class="secondary">Next</button>
+      </div>
+    </section>
+    <section id="visitor" hidden>
+      <h2>Public posts</h2>
+      <form id="visitor-lookup">
+        <label>Author ID <input name="author" maxlength="24" pattern="[a-fA-F0-9]{24}" required></label>
+        <button>Find posts</button>
+      </form>
+      <div id="visitor-items"></div>
+      <div id="visitor-pagination" hidden>
+        <button id="visitor-previous" class="secondary">Previous</button>
+        <span id="visitor-page"></span>
+        <button id="visitor-next" class="secondary">Next</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
