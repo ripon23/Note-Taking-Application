@@ -22,6 +22,13 @@ python -m flask --app secure_notes.app run --port 3000
 
 For hosted deployment, use `render.yaml` or run the Gunicorn command defined there. Set `FRONTEND_ORIGIN` to the frontend's origin and use `TRUST_PROXY=1` when deployed behind the Render proxy.
 
+
+## Deploy on Vercel
+
+For the backend project, set **Root Directory** to `backend` when deploying the combined repository and use the **Flask** framework preset. Vercel loads the Flask app from `app.py`. Leave the build and output overrides off.
+
+Set `MONGODB_URI` to a reachable MongoDB connection string that includes its database name, `JWT_SECRET` to a random secret, and `FRONTEND_ORIGIN` to the deployed frontend origin. Verify the deployment at `/api/health`.
+
 ## Configuration
 
 Set these optional values in local `.env` or in the hosting environment, then restart the API.
