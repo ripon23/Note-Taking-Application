@@ -1,2 +1,1 @@
-// Set the deployed backend's HTTPS URL before publishing this repository.
-export const productionApi = ''
+export const productionApi = 'https://note-taking-application-be.vercel.app'
